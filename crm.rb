@@ -10,6 +10,11 @@ get '/contacts' do
   erb :contacts
 end
 
+get '/contacts/:id' do
+  @contact = Contact.find_by({id: params[:id].to_i})
+  erb :show_contact
+end
+
 get '/about' do
   erb :about
 end
@@ -17,6 +22,7 @@ end
 get '/add_new_contact' do
   erb :add_new_contact
 end
+
 
 #
 # class CRM
